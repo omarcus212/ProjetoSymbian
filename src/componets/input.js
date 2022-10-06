@@ -3,14 +3,15 @@ import {
     View,
     Text,
     TextInput,
-    StyleSheet
+    StyleSheet,
+    
 } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import COLORS from "../Colors/color";
 
 
 
-const Input = ({ label }) => {
+const Input = ({ label,type, error, onFocus=()=>{}, ...props }) => {
 
 
     return (
@@ -23,7 +24,9 @@ const Input = ({ label }) => {
 
                 <View style={StyleInput.viewInput}>
 
-                 <TextInput style={StyleInput.textInput}/>
+                 <TextInput style={StyleInput.textInput} 
+                 keyboardType = {type}/>
+                 
 
                 </View>
 
@@ -51,11 +54,12 @@ formContainer:{
 
  titleLabel:{
   color:COLORS.white,
+  fontSize:20
  },
  
  textInput:{
     height:40,
-    borderRadius: 0.6,
+    borderRadius: 9,
     color:COLORS.white
    
  },
@@ -63,7 +67,7 @@ formContainer:{
  viewInput:{
     width:350,
     height:40,
-    borderRadius: 2,
+    borderRadius: 8,
     borderColor:COLORS.white,
     borderWidth:2,
     
